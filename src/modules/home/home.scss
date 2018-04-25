@@ -1,0 +1,14 @@
+@import "~style/variables";
+
+.home.candor-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .iso-footer {
+        font-size: map-get($fontSize, small);
+        color: lighten(map-get($color, redorange), 10%);
+        font-weight: bold;
+    }
+}

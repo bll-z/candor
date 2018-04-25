@@ -1,0 +1,26 @@
+@import "~style/variables";
+
+.location-info {
+    text-align: center;
+
+    .location-title {
+        font-family: map-get($fontFamily, header);
+        color: map-get($color, gray);
+    }
+
+    .location-address {
+        font-weight: lighter;
+    }
+
+    .location-phone-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .location-phone {
+            &:not(:last-of-type) {
+                margin-right: 5px;
+            }
+        }
+    }
+}

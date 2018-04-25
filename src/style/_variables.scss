@@ -1,0 +1,56 @@
+$blueshift-color: rgb(17, 30, 108);
+$phoenix-color: #FF0530;
+
+$primary-color: $blueshift-color;
+$primary-color: $phoenix-color;
+
+
+$default-color: rgb(169, 169, 169);
+$default-color-dark: darken($default-color, 10%);
+$default-color-light: rgb(211, 211, 211);
+$primary-color-dark: darken($primary-color, 10%);
+$primary-color-light: lighten($primary-color, 45%);
+
+$bg-color: rgb(249, 249, 249);
+$bg-color-light: rgb(255, 255, 255);
+$bg-color-header: rgb(238, 241, 247);
+$bg-color-dark: rgb(243, 243, 243);
+$bg-color-modal-overlay: rgba(128, 128, 128, .9);
+
+$border-radius: 5px;
+
+$error-color: $phoenix-color;
+$warning-color: rgb(255, 152, 0);
+$success-color: rgb(72, 195, 92);
+$link-color: rgb(64, 130, 218);
+
+$color: (
+    redorange: #b31f09,
+    orange: #E36414,
+    lightorange: #FB8B24,
+    gray: #B7BAB9,
+    darkgray: #3D4044,
+    granite: #6D6466,
+    black: #252323,
+    white: #FFFFFF,
+    blue: #4A6FA5,
+    red: #9A031E,
+    yellow: #F9CB40,
+    green: #2BC016,
+);
+
+$borderRadius: 5px;
+
+$fontSize: (
+    extralarge: 28px,
+    large: 24px,
+    medium: 20px,
+    small: 16px,
+    semismall: 14px,
+    extrasmall: 12px,
+);
+
+$fontFamily: (
+    content: 'Roboto',
+    header: 'Open Sans',
+);

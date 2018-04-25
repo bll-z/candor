@@ -1,0 +1,32 @@
+@import "~style/variables";
+
+.header {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid map-get($color, gray);
+    border-bottom: 2px solid map-get($color, gray);
+    padding: 10px 20px;
+    background-color: map-get($color, white);
+
+    .header-logo {
+        flex: 0 0 auto;
+        height: 80px;
+        width: calc(80 / 165 * 640px);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("~/static/images/candorlogo.png");
+    }
+
+    .banyan-login-form-wrapper {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .burger-menu {
+            .rw-widget-input {
+                display: none;
+            }
+        }
+    }
+}

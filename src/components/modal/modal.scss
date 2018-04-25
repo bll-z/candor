@@ -1,0 +1,28 @@
+@import "~style/variables";
+
+.candor-modal-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: map-get($color, granite);
+    position: fixed;
+    top: 0;
+    text-align: center;
+
+    .candor-modal {
+        outline: none;
+        text-align: initial;
+        margin: auto;
+        max-width: 90vw;
+        max-height: 90vh;
+        width: 400px;
+        position: relative;
+        padding: 20px;
+        background-color: lighten(map-get($color, gray), 10%);
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        border: 3px solid darken(map-get($color, orange), 20%);
+        border-radius: $border-radius;
+    }
+}

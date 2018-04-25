@@ -1,0 +1,101 @@
+@import "~style/variables";
+
+$primary-color: map-get($color, redorange);
+$primary-color-light: lighten($primary-color, 50%);
+$bg-color: darken(map-get($color, white), 5%);
+$text-color: map-get($color, granite);
+
+%candor-nav-list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background-color: map-get($color, white);
+    border: 1px solid map-get($color, granite);
+    white-space: nowrap;
+
+    & > .candor-nav-item {
+        list-style: none;
+        outline: none;
+        padding: 9px 18px;
+        font-size: map-get($fontSize, medium);
+
+        &.selected,&:hover,&:focus {
+            color: map-get($color, white);
+            background-color:  lighten(map-get($color, redorange), 10%);
+        }
+    }
+}
+
+.candor-nav {
+
+    .candor-nav-large {
+        display: flex;
+        padding: 0;
+        margin: 0;
+
+        .candor-nav-item,.candor-nav-list-wrapper {
+            list-style: none;
+            font-size: map-get($fontSize, semismall);
+            color: map-get($color, darkgray);
+            padding: 20px 18px;
+            outline: none;
+
+            &.selected,&:hover,&:focus {
+                color:  lighten(map-get($color, redorange), 10%);
+                cursor: pointer;
+            }
+        }
+
+        .candor-nav-list-wrapper {
+            position: relative;
+
+            .candor-nav-list {
+                @extend %candor-nav-list;
+                top: 50px;
+                left: 0px;
+
+                position: absolute;
+                top: 50px;
+                left: 0px;
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                background-color: map-get($color, white);
+                border: 1px solid map-get($color, granite);
+                white-space: nowrap;
+                transition: opacity .5s ease-in-out;
+                transition: z-index .5s;
+                opacity: 0;
+                z-index: -1;
+                outline: none;
+
+                &:focus,&:hover,&:focus-within {
+                    opacity: 1;
+                    z-index: 1;
+                }
+            }
+
+            &:hover,&:focus {
+                .candor-nav-list {
+                    opacity: 1;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    .candor-nav-small {
+        @extend %candor-nav-list;
+        top: 100px;
+        left: 0px;
+        width: 100vw;
+        overflow-y: auto;
+        padding: 0;
+        margin: 0;
+
+        &.candor-nav-hidden {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+@import '~style/variables';
+
+$bg-color: darken(map-get($color, darkgray), 10%);
+$font-color: map-get($color, white);
+$font-color-accent: map-get($color, gray);
+
+.content-info {
+    padding: 10px 20px;
+    background-color: $bg-color;
+    border-top: 1px solid map-get($color, gray);
+    color: $font-color;
+    font-size: map-get($fontSize, medium);
+
+    .contact-info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .candor-info {
+            flex-grow: 1;
+            flex-basis: 30%;
+
+            .candor-pronounciation {
+                font-weight: lighter;
+                font-family: map-get($fontFamily, header);
+            }
+
+            .candor-definition {
+                color: $font-color-accent;
+            }
+        }
+
+        .location-info {
+            flex-grow: 3;
+            flex-basis: 40%;
+        }
+
+        .contact-us {
+            flex-grow: 1;
+            flex-basis: 30%;
+            text-align: right;
+            font-size: map-get($fontSize, medium);
+            font-family: map-get($fontFamily, header);
+        }
+    }
+}

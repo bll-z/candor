@@ -1,0 +1,164 @@
+@import "variables";
+@import "content";
+@import "form";
+@import "responsive";
+
+/////////////////////////////
+// BASE LAYOUT CONFIGURATION
+/////////////////////////////
+
+body {
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+    font-family: map-get($fontFamily, content);
+    font-size: map-get($fontSize, large);
+    color: map-get($color, black);
+}
+
+.candor-page {
+    box-sizing: border-box;
+    background-color: darken(map-get($color, white), 2%);
+    padding-top: 20px;
+    padding-right: 60px;
+    padding-left: 60px;
+    padding-bottom: 10px;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+$link-color: map-get($color, lightorange);
+
+a {
+    outline: none;
+    cursor: pointer;
+    text-decoration: underline;
+    color: $link-color;
+
+    &:focus,&:hover {
+        color: darken($link-color, 10%);
+    }
+
+    &:active,&:disabled {
+        color: darken($link-color, 20%);
+    }
+}
+
+
+//////////////////////////////
+// BUTTONS
+/////////////////////////////
+
+@mixin vk-btn-color-mixin($btn-bg-light, $btn-bg, $btn-bg-dark, $btn-border-light, $btn-border, $btn-border-dark, $btn-text, $btn-text-dark) {
+    border-color: $btn-border-light;
+    background-color: $btn-bg-light;
+    color: $btn-text;
+
+    &:hover,&:focus {
+        border-color: $btn-border;
+        background-color: $btn-bg;
+        /* offset-x | offset-y | blur-radius | color */
+    }
+
+    &:active,&:disabled,&[disabled] {
+        color: $btn-text-dark;
+        border-color: $btn-border-dark;
+        background-color: $btn-bg-dark;
+    }
+}
+
+$primary-color: lighten(map-get($color, redorange), 10%);
+$primary-color-dark: darken($primary-color, 10%);
+$primary-color-dark20: darken($primary-color, 20%);
+$primary-color-dark30: darken($primary-color, 30%);
+$primary-color-darkest: darken($primary-color, 30%);
+$primary-color-darkest: darken($primary-color, 30%);
+$bg-color: map-get($color, white);
+$bg-color-dark10: darken($bg-color, 10%);
+$bg-color-dark20: darken($bg-color, 20%);
+$bg-color-dark30: darken($bg-color, 30%);
+$bg-color-dark40: darken($bg-color, 40%);
+$default-color-dark: map-get($color, darkgray);
+$default-color-dark-dark10: darken($default-color-dark, 10%);
+
+.candor-btn {
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 12px;
+    font-weight: semibold;
+    padding: 10px;
+    outline: none;
+    min-width: 100px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: $border-radius;
+
+    &.candor-btn-default {
+        @include vk-btn-color-mixin($bg-color, $bg-color-dark10, $bg-color-dark20, $bg-color-dark20, $bg-color-dark30, $bg-color-dark40, $default-color-dark, $default-color-dark-dark10);
+    }
+
+    &.candor-btn-primary {
+        @include vk-btn-color-mixin($primary-color, $primary-color-dark, $primary-color-dark20, $primary-color-dark, $primary-color-dark20, $primary-color-dark30, $bg-color-light, $bg-color);
+    }
+
+    &.candor-btn-accent {
+        @include vk-btn-color-mixin($bg-color, $bg-color-dark10, $bg-color-dark20, $bg-color-dark20, $bg-color-dark30, $bg-color-dark40, $primary-color, $primary-color-dark);
+    }
+}
+
+@mixin wrapper-btn-mixin($btn-bg-light, $btn-bg, $btn-bg-dark) {
+    color: $btn-bg-light;
+
+    .candor-icon {
+        .fill {
+            fill: $btn-bg-light;
+        }
+    }
+
+    &:focus,&:hover {
+        color: $btn-bg;
+
+        .candor-icon {
+            .fill {
+                fill: $btn-bg;
+            }
+        }
+    }
+
+    &:active,&:disabled {
+        color: $btn-bg-dark;
+
+        .candor-icon {
+            .fill {
+                fill: $btn-bg-dark;
+            }
+        }
+    }
+}
+
+$granite: map-get($color, granite);
+
+.candor-wrapper-btn {
+    padding: 0;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: underline;
+
+    &.candor-btn-primary {
+        @include wrapper-btn-mixin($primary-color, $primary-color-dark, $primary-color-dark20);
+    }
+
+    &.candor-btn-default {
+        @include wrapper-btn-mixin($granite, darken($granite, 10%), darken($granite, 20%));
+    }
+}
+
+.candor-icon {
+    .fill {
+        fill: map-get($color, darkgrey);
+    }
+}

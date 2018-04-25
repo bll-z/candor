@@ -1,0 +1,107 @@
+@import "~style/variables";
+
+$bg-color: map-get($color, white);
+$default-color: map-get($color, granite);
+$default-color-dark: darken($default-color, 10%);
+$default-color-light: lighten($default-color, 10%);
+
+@mixin candor-form-control-border {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid $default-color;
+    border-radius: $border-radius;
+    background-color: $bg-color;
+    padding: 10px;
+}
+
+@mixin candor-form-control-text {
+    font-size: map-get($fontSize, small);
+    color: $default-color;
+}
+
+@mixin candor-form-control-focus-border {
+    border-color: $default-color-dark;
+}
+
+@mixin candor-form-control-focus-text {
+    color: $default-color-dark;
+}
+
+@mixin candor-form-control-disabled-border {
+    background-color: darken($bg-color, 10%);
+    border-color: $default-color-dark;
+}
+
+@mixin candor-form-control-disabled-text {
+    color: $default-color-dark;
+}
+
+@mixin candor-form-control-empty {
+    color: $default-color-light
+}
+
+@mixin candor-form-control-empty-focus {
+    color: $default-color;
+}
+
+@mixin candor-form-control-empty-disabled {
+    color: $default-color-dark;
+}
+
+.candor-form-group {
+    margin-bottom: 10px;
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: map-get($fontSize, small);
+        font-family: map-get($fontFamily, header);
+        text-transform: uppercase;
+        color: $default-color-dark;
+    }
+
+    .text-input {
+        width: calc(100% - 22px);
+        @include candor-form-control-border;
+        @include candor-form-control-text;
+
+        &::placeholder,&.placeholder {
+            @include candor-form-control-empty;
+        }
+
+        &:focus {
+            @include candor-form-control-focus-border;
+            @include candor-form-control-focus-text;
+
+            &::placeholder,&.placeholder {
+                @include candor-form-control-empty-focus;
+            }
+        }
+
+        &:disabled,&[disabled] {
+            @include candor-form-control-disabled-border;
+            @include candor-form-control-disabled-text;
+
+            &::placeholder,&.placeholder {
+                @include candor-form-control-empty-disabled;
+            }
+        }
+
+        &.select-input {
+            height: 40px;
+            width: 100%;
+        }
+
+        &.textarea-input {
+            height: 200px;
+        }
+    }
+}
+
+.candor-form-actions {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}

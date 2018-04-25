@@ -1,0 +1,41 @@
+@import "~style/variables";
+
+.candor-login-page-wrapper {
+    background-color: map-get($color, grey);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .candor-login-page {
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .header-logo {
+            height: 80px;
+            width: calc(80 / 165 * 640px);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("~/static/images/candorlogo.png");
+        }
+
+        .banyan-login-title {
+            font-family: map-get($fontFamily, header);
+            font-size: map-get($fontSize, medium);
+            color: map-get($color, redorange);
+            font-weight: bold;
+            margin-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .banyan-login-form {
+            margin-left: 25px;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@import "variables";
+
+.candor-content {
+    align-items: stretch;
+    flex-direction: column;
+    display: flex;
+    color: map-get($color, granite);
+
+    .candor-title {
+        margin-bottom: 15px;
+        margin-top: 15px;
+        font-size: map-get($fontSize, extralarge);
+        font-weight: bold;
+        color: map-get($color, orange);
+        font-family: map-get($fontFamily, header);
+        text-align: center;
+    }
+
+    .candor-paragraph {
+        align-self: flex-start;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        font-family: map-get($fontFamily, content);
+    }
+
+    img {
+        margin-bottom: 20px;
+        margin-top: 20px;
+        max-width: 100%;
+        height: auto;
+        width: auto;
+    }
+}

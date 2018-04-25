@@ -1,0 +1,23 @@
+@import "~style/variables";
+
+.contact-us.candor-page {
+
+    .candor-paragraph {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .location-info {
+        margin-bottom: 20px;
+
+        .location-title {
+            color: map-get($color, orange);
+        }
+    }
+
+    img {
+        margin: 0px;
+    }
+
+}
