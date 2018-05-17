@@ -6,6 +6,13 @@
     justify-content: space-between;
     align-items: center;
 
+    iframe {
+        align-self: stretch;
+        margin-bottom: 10px;
+        border: 0;
+        height: 600px;
+    }
+
     .iso-footer {
         font-size: map-get($fontSize, small);
         color: lighten(map-get($color, redorange), 10%);

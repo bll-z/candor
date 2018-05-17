@@ -378,6 +378,11 @@ a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center; }
+  .home.candor-page iframe {
+    align-self: stretch;
+    margin-bottom: 10px;
+    border: 0;
+    height: 600px; }
   .home.candor-page .iso-footer {
     font-size: 16px;
     color: #e4270b;
