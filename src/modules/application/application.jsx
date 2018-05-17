@@ -4,7 +4,6 @@ import React from 'react';
 
 import Header from 'components/header/header';
 import Sidebar from 'components/sidebar/sidebar';
-import ContentInfo from 'components/content-info/content-info';
 
 import ApplicationRouter from './router';
 
@@ -19,12 +18,7 @@ class Application extends React.Component {
 				<div className="header-wrapper">
 					<Header openNavbar={openNavbar} />
 				</div>
-				<div className="content-wrapper">
-					<div className="content">
-						<ApplicationRouter />
-						<ContentInfo />
-					</div>
-				</div>
+				<ApplicationRouter />
 			</div>
 		);
 	}

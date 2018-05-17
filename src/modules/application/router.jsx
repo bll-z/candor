@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
+import ContentInfo from 'components/content-info/content-info';
+
 import CarrierServices from '../carrier-services/carrier-services';
 import CompanyProfile from '../company-profile/company-profile';
 import ContactUs from '../contact-us/contact-us';
@@ -12,6 +14,15 @@ import Rigging from '../rigging/rigging';
 import Warehousing from '../warehousing/warehousing';
 import TransportationServices from '../transportation-services/transportation-services';
 
+const candorPage = Page => () => (
+	<div className="content-wrapper">
+		<div className="content">
+			<Page />
+			<ContentInfo />
+		</div>
+	</div>
+);
+
 
 export default class ApplicationRouter extends React.Component {
 
@@ -20,23 +31,23 @@ export default class ApplicationRouter extends React.Component {
 			<Switch>
 				<Route
 					path="/home"
-					component={Home}
+					component={candorPage(Home)}
 				/>
 				<Route
 					path="/carrier-services"
-					component={CarrierServices}
+					component={candorPage(CarrierServices)}
 				/>
 				<Route
 					path="/company-profile"
-					component={CompanyProfile}
+					component={candorPage(CompanyProfile)}
 				/>
 				<Route
 					path="/contact-us"
-					component={ContactUs}
+					component={candorPage(ContactUs)}
 				/>
 				<Route
 					path="/container-services"
-					component={ContainerServices}
+					component={candorPage(ContainerServices)}
 				/>
 				<Route
 					path="/login"
@@ -44,19 +55,19 @@ export default class ApplicationRouter extends React.Component {
 				/>
 				<Route
 					path="/ltl-shipments"
-					component={LtlShipments}
+					component={candorPage(LtlShipments)}
 				/>
 				<Route
 					path="/rigging"
-					component={Rigging}
+					component={candorPage(Rigging)}
 				/>
 				<Route
 					path="/warehousing-and-distribution"
-					component={Warehousing}
+					component={candorPage(Warehousing)}
 				/>
 				<Route
 					path="/transportation-services"
-					component={TransportationServices}
+					component={candorPage(TransportationServices)}
 				/>
 				<Redirect key="redirect" from="*" to="/home" />
 			</Switch>

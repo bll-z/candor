@@ -1,20 +1,29 @@
 import React from 'react';
+import request from 'superagent';
+import { withRouter } from 'react-router-dom';
 
 class ContactUsForm extends React.Component {
 
 	onSubmit(event) {
+		event && event.preventDefault && event.preventDefault();
+
 		if (document.getElementById('starcolor').value.toLocaleLowerCase() !== 'white') {
-			console.log('preventing');
-			event.preventDefault();
+			return;
 		}
 
-		// TODO: remove
-		event.preventDefault();
+		request.post('/contact.php')
+			.send(new FormData(document.getElementById('contactusfrm')))
+			.then(() => {
+				this.props.history.push('company-profile');
+			})
+			.catch(err => {
+				window.alert(err.message);
+			});
 	}
 
 	render() {
 		return (
-			<form id="contactusfrm" className="contact-us-form" name="contactusfrm" method="post" onSubmit={(event) => this.onSubmit(event)}>
+			<form action="contact.php" id="contactusfrm" className="contact-us-form" name="contactusfrm" method="post" onSubmit={(event) => this.onSubmit(event)}>
 				<div className="candor-form-group">
 					<label htmlFor="#name">Name:</label>
 					<input name="name" type="text" className="text-input" id="name" placeholder="Enter name..." required />
@@ -54,4 +63,4 @@ class ContactUsForm extends React.Component {
 	}
 }
 
-export default ContactUsForm;
+export default withRouter(ContactUsForm);

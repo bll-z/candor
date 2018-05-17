@@ -44,6 +44,7 @@ const header = ({ openFormModal, onFormModalClose, formModalState, onRouteSelect
 	<div className="header" role="banner">
 		<div className="header-logo" />
 		<div className="banyan-login-form-wrapper">
+			<a className="candor-btn candor-btn-primary" href="tel:+18669419100">Call Now!</a>
 			<button
 				onClick={onBurgerMenuToggle}
 				className="candor-nav-small candor-wrapper-btn candor-btn-default"

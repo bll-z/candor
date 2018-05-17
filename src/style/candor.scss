@@ -86,13 +86,13 @@ $default-color-dark-dark10: darken($default-color-dark, 10%);
     vertical-align: middle;
     text-align: center;
     font-size: 12px;
-    font-weight: semibold;
+    font-weight: 600;
     padding: 10px;
     outline: none;
-    min-width: 100px;
     border-width: 1px;
     border-style: solid;
     border-radius: $border-radius;
+    text-decoration: none;
 
     &.candor-btn-default {
         @include vk-btn-color-mixin($bg-color, $bg-color-dark10, $bg-color-dark20, $bg-color-dark20, $bg-color-dark30, $bg-color-dark40, $default-color-dark, $default-color-dark-dark10);

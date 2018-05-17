@@ -1,10 +1,8 @@
 import './sidebar.scss';
-import 'react-widgets/dist/css/react-widgets.css';
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
-import { DropdownList } from 'react-widgets'
 import _ from 'lodash';
 
 import routes from 'utils/routes';
