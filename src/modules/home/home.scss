@@ -2,9 +2,39 @@
 
 .home.candor-page {
     display: flex;
+    padding: 0;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    background-image: url('/static/images/exterior-day.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+
+    .candor-content {
+        background-color: rgba(255, 255, 255, .8);
+        width: calc(100% - 40px);
+        padding: 0px 20px;
+
+        &.home-content-top {
+            padding-top: 50px 
+        }
+
+        &.home-content-bottom { 
+            margin-bottom: 1200px;
+        }
+
+        a {
+            align-self: center;
+            
+            .google-thumb {
+                height: 50px;
+                width: 50px;
+            }
+        }
+    } 
 
     iframe {
         align-self: stretch;
@@ -17,5 +47,6 @@
         font-size: map-get($fontSize, small);
         color: lighten(map-get($color, redorange), 10%);
         font-weight: bold;
+        margin-bottom: 10px;
     }
 }

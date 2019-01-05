@@ -375,9 +375,27 @@ a {
   margin: 0px; }
 .home.candor-page {
   display: flex;
+  padding: 0;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  background-image: url("/static/images/exterior-day.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+  .home.candor-page .candor-content {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: calc(100% - 40px);
+    padding: 0px 20px; }
+    .home.candor-page .candor-content.home-content-top {
+      padding-top: 50px; }
+    .home.candor-page .candor-content.home-content-bottom {
+      margin-bottom: 1200px; }
+    .home.candor-page .candor-content a {
+      align-self: center; }
+      .home.candor-page .candor-content a .google-thumb {
+        height: 50px;
+        width: 50px; }
   .home.candor-page iframe {
     align-self: stretch;
     margin-bottom: 10px;
@@ -386,7 +404,8 @@ a {
   .home.candor-page .iso-footer {
     font-size: 16px;
     color: #e4270b;
-    font-weight: bold; }
+    font-weight: bold;
+    margin-bottom: 10px; }
 .candor-login-page-wrapper {
   background-color: #B7BAB9;
   height: 100vh;
