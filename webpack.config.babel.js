@@ -1,8 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import PROD_CONFIG from './config/prod';
 import DEVELOP_CONFIG from './config/develop';
@@ -20,9 +20,8 @@ export const PLUGINS = [
 	]),
 
 	// Extract all of the compliles SCSS into a single .css file.
-	new ExtractTextPlugin({
+	new MiniCssExtractPlugin({
 		filename: CSS_BUNDLE_NAME, // Resulting .css bundle name
-		allChunks: true, // Important for build performance
 	}),
 
 	// Generate the index.html file and adds the bundle.js and bundle.css files to the index.html.
@@ -66,10 +65,18 @@ const config = {
 			},
 			{
 				test: /\.s?css$/, // ...for each file that matches *.scss
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: ['css-loader', 'sass-loader'], // transform all .scss files using the scss-loader and css-loaders.
-				}),
+				use: [
+				  {
+					loader: MiniCssExtractPlugin.loader,
+					options: {
+					  // you can specify a publicPath here
+					  // by default it uses publicPath in webpackOptions.output
+					  publicPath: '../',
+					},
+				  },
+				  { loader: 'css-loader', options: { url: false } },
+				  'sass-loader',
+				],
 			},
 			{
 				test: /\.(gif|ttf|eot|svg|woff2?)$/,

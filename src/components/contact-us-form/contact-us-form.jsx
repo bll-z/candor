@@ -2,7 +2,17 @@ import React from 'react';
 import request from 'superagent';
 import { withRouter } from 'react-router-dom';
 
+const hiddenReg = /name="hidden"\svalue="([a-z0-9]+)"/;
+const formIdReg = /id="([A-Z0-9]+)"\svalue="Submit"/;
+const successMessageReg = /Success! Email sent on/;
+
+
 class ContactUsForm extends React.Component {
+
+	state = {
+		formId: null,
+		hiddenValue: null,
+	}
 
 	onSubmit(event) {
 		event && event.preventDefault && event.preventDefault();
@@ -13,11 +23,24 @@ class ContactUsForm extends React.Component {
 
 		request.post('/contact.php')
 			.send(new FormData(document.getElementById('contactusfrm')))
-			.then(() => {
+			.then(resp => {
+				if (!successMessageReg.test(resp.body)) {
+					throw Error("Email not sent, please contact administrator");
+				}
 				this.props.history.push('company-profile');
 			})
 			.catch(err => {
 				window.alert(err.message);
+			});
+	}
+
+	componentDidMount() {
+		request.get('/contact.php')
+			.then(resp => {
+				this.setState({
+					formId: resp.body.match(formIdReg)[1],
+					hiddenValue: resp.body.match(hiddenReg)[1],
+				});
 			});
 	}
 
@@ -46,6 +69,11 @@ class ContactUsForm extends React.Component {
 						<option value="report a problem with the website">Report a problem with the website</option>
 					</select>
 				</div>
+				<div style={{ position: 'absolute', left: '-9000px' }}>
+					<input type="text" name="honeypot" defaultValue="" id="honeypot" />
+					<input type="hidden" name="hidden" defaultValue={this.state.hiddenValue} id="hidden" alt="hidden" />
+					<input type="hidden" name={this.state.formId} id={this.state.formId} defaultValue="Submit" alt="Submit" />
+				</div>
 				<div className="candor-form-group">
 					<label htmlFor="#message">Message:</label>
 					<textarea name="message" className="text-input textarea-input" id="message" placeholder="Enter message..." required></textarea>
@@ -58,6 +86,7 @@ class ContactUsForm extends React.Component {
 				<div className="candor-form-actions">
 					<button type="submit" className="candor-btn candor-btn-primary">Submit</button>
 				</div>
+
 			</form>
 		);
 	}

@@ -16,7 +16,7 @@ const contentInfo = (props) => (
 			<Route
 				path={'/contact-us'}
 				children={({ history }) => (
-					<a className="contact-us" href="javascript://" onClick={() => history.push('contact-us')}>contact us</a>
+					<a className="contact-us" onClick={() => history.push('contact-us')}>contact us</a>
 				)}
 			/>
 		</div>
